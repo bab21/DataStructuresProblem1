@@ -48,5 +48,29 @@ public class MyLinkedListTest {
 				
 		assertTrue(result);
 	}
+	@Test
+	public void givenNewNodeToInsertAfterParticularNode() {
+		MyNode myFirstNode=new MyNode(56);
+		MyNode mySecondNode=new MyNode(70);
+		
+		MyNode newNode=new MyNode(30);
+		
+		MyLinkedList myLinkedList=new MyLinkedList();
+		
+		myLinkedList.append(myFirstNode);
+		myLinkedList.append(mySecondNode);
+		myLinkedList.insertAfter(myFirstNode, newNode);
+		
+        myLinkedList.printMyLinkedList();
+		
+		boolean result=myLinkedList.head.equals(myFirstNode)&&
+					   myLinkedList.head.getNext().equals(newNode)&&
+					   myLinkedList.head.getNext().getNext().equals(mySecondNode)&&
+					   myLinkedList.tail.equals(mySecondNode);
+		
+				
+		assertTrue(result);
+		
+	}
 
 }

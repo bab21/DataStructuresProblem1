@@ -30,6 +30,18 @@ public class MyLinkedList<K> {
 		}
 		
 	}
+	
+	public void insertAfter(INode myNode,INode newNode) {
+		INode iteratorNode=head;
+		
+		while(iteratorNode!=myNode) {
+			iteratorNode=iteratorNode.getNext();
+		}
+		INode tempNode=iteratorNode.getNext();
+		iteratorNode.setNext(newNode);
+		newNode.setNext(tempNode);
+	}
+	
 	public void printMyLinkedList() {
 		StringBuffer myNodes=new StringBuffer("My Nodes....");
 		INode tempNode=head;
@@ -41,5 +53,6 @@ public class MyLinkedList<K> {
 		System.out.println(myNodes);
 		
 	}
+	
 }
 
