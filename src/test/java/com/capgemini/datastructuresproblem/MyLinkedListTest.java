@@ -88,9 +88,7 @@ public class MyLinkedListTest {
 		myLinkedList.append(myThirdNode);
 		
 		INode returnedNode=myLinkedList.pop();
-		System.out.println("After deleting first node");
-		myLinkedList.printMyLinkedList();
-		
+	
 		boolean result=myLinkedList.head.equals(mySecondNode)&&
 					   myLinkedList.head.getNext().equals(myThirdNode)&&
 					   returnedNode.equals(myFirstNode)&&
@@ -114,10 +112,6 @@ public class MyLinkedListTest {
 			
 			
 			INode returnedNode=myLinkedList.popLast();
-			System.out.println("After deleting last node");
-			myLinkedList.printMyLinkedList();
-			
-			
 			
 			boolean result=myLinkedList.head.equals(myFirstNode)&&
 						   myLinkedList.head.getNext().equals(mySecondNode)&&
@@ -125,6 +119,26 @@ public class MyLinkedListTest {
 						   myLinkedList.tail.equals(mySecondNode);
 		
 				
+			assertTrue(result);
+		}
+	  
+	//UC7 ...
+		@Test
+		public void searchNodeWithKeyValueShouldPassResult() {
+			MyNode myFirstNode=new MyNode(56);
+			MyNode mySecondNode=new MyNode(30);
+			MyNode myThirdNode=new MyNode(70);
+			
+			MyLinkedList myLinkedList=new MyLinkedList();
+			myLinkedList.append(myFirstNode);
+			myLinkedList.append(mySecondNode);
+			myLinkedList.append(myThirdNode);
+			
+			
+			INode returnedNode=myLinkedList.searchNodeWithKey(30);
+			System.out.println("Search node key value:"+returnedNode.getKey());
+			
+			boolean result=returnedNode.equals(mySecondNode);
 			assertTrue(result);
 		}
 }
