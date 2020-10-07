@@ -32,23 +32,11 @@ public class MyLinkedList<K> {
 	}
 	
 	public void insertAfter(INode myNode,INode newNode) {
-		INode iteratorNode=head;
-		
-		while(iteratorNode!=myNode) {
-			iteratorNode=iteratorNode.getNext();
-		}
-		INode tempNode=iteratorNode.getNext();
-		iteratorNode.setNext(newNode);
+		INode tempNode=myNode.getNext();
+		myNode.setNext(newNode);
 		newNode.setNext(tempNode);
 	}
 	
-	public INode pop() {
-		if(head==null)
-			return null;
-		INode tempNode=head;
-		head=head.getNext();
-		return tempNode;
-	}
 	
 	public void printMyLinkedList() {
 		StringBuffer myNodes=new StringBuffer("My Nodes....");
