@@ -38,7 +38,7 @@ public class MyLinkedListTest {
 		myLinkedList.append(mySecondNode);
 		myLinkedList.append(myThirdNode);
 		
-		myLinkedList.printMyLinkedList();
+		
 		
 		boolean result=myLinkedList.head.equals(myFirstNode)&&
 					   myLinkedList.head.getNext().equals(mySecondNode)&&
@@ -63,7 +63,7 @@ public class MyLinkedListTest {
 		myLinkedList.append(mySecondNode);
 		myLinkedList.insertAfter(myFirstNode, newNode);
 		
-        myLinkedList.printMyLinkedList();
+       
 		
 		boolean result=myLinkedList.head.equals(myFirstNode)&&
 					   myLinkedList.head.getNext().equals(newNode)&&
@@ -99,5 +99,32 @@ public class MyLinkedListTest {
 			
 		assertTrue(result);
 	}
-
+	
+	//UC6 ...
+		@Test
+		public void deleteLastNodeRecheckTheLinkedListDeletedNodeShouldNotPresentAndTailShouldBeSecondLastNode() {
+			MyNode myFirstNode=new MyNode(56);
+			MyNode mySecondNode=new MyNode(30);
+			MyNode myThirdNode=new MyNode(70);
+			
+			MyLinkedList myLinkedList=new MyLinkedList();
+			myLinkedList.append(myFirstNode);
+			myLinkedList.append(mySecondNode);
+			myLinkedList.append(myThirdNode);
+			
+			
+			INode returnedNode=myLinkedList.popLast();
+			System.out.println("After deleting last node");
+			myLinkedList.printMyLinkedList();
+			
+			
+			
+			boolean result=myLinkedList.head.equals(myFirstNode)&&
+						   myLinkedList.head.getNext().equals(mySecondNode)&&
+						   returnedNode.equals(myThirdNode)&&
+						   myLinkedList.tail.equals(mySecondNode);
+		
+				
+			assertTrue(result);
+		}
 }
