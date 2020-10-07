@@ -136,9 +136,30 @@ public class MyLinkedListTest {
 			
 			
 			INode returnedNode=myLinkedList.searchNodeWithKey(30);
-			System.out.println("Search node key value:"+returnedNode.getKey());
-			
 			boolean result=returnedNode.equals(mySecondNode);
+			assertTrue(result);
+		}
+	//UC8...
+		@Test
+		public void insertNodeWithKeyValueShouldPassResult() {
+			MyNode myFirstNode=new MyNode(56);
+			MyNode mySecondNode=new MyNode(30);
+			MyNode myThirdNode=new MyNode(70);
+			
+			MyLinkedList myLinkedList=new MyLinkedList();
+			myLinkedList.append(myFirstNode);
+			myLinkedList.append(mySecondNode);
+			myLinkedList.append(myThirdNode);
+			
+			System.out.println("Before inserting");
+			myLinkedList.printMyLinkedList();
+		    myLinkedList.insertAfterNodeWithKey(30,40);
+		    
+		    
+		    System.out.println("inserting 40  after 30 in linkedlist");
+		    myLinkedList.printMyLinkedList();
+		    
+			boolean result=(Integer)mySecondNode.getNext().getKey()==40;
 			assertTrue(result);
 		}
 }

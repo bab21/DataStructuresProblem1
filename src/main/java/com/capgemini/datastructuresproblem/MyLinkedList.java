@@ -63,6 +63,14 @@ public class MyLinkedList<K> {
 		}
 		return tempNode;
 	}
+	
+	//UC8.....
+	public void insertAfterNodeWithKey(K givenKey,K newKey) {
+		INode nodeWithGivenKey=this.searchNodeWithKey(givenKey);
+		INode newNode=new MyNode(newKey);
+		this.insertAfter(nodeWithGivenKey, newNode);
+		
+	}
 	public void printMyLinkedList() {
 		StringBuffer myNodes=new StringBuffer("My Nodes....");
 		INode tempNode=head;
