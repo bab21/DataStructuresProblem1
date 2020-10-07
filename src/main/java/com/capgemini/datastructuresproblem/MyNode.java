@@ -1,16 +1,26 @@
 package com.capgemini.datastructuresproblem;
 
-public class MyNode<K> {
+public class MyNode<K> implements INode<K> {
 	private K key;
-	private MyNode next;
+	private INode next;
 	public MyNode(K key){
 		this.key=key;
 		this.next=null;
 	}
-	public MyNode getNext() {
-		return this.next;
+	
+	
+	public void setKey(K key) {
+		this.key=key;
 	}
-	public void setNext(MyNode myNode) {
-		this.next=myNode;
+	public INode<K> getNext(){
+		return next;
+	}
+	public void setNext(INode next) {
+		this.next=next;
+	}
+
+	@Override
+	public K getKey() {
+		return this.key;
 	}
 }
