@@ -1,6 +1,6 @@
 package com.capgemini.datastructuresproblem;
 
-public class MyLinkedList<K> {
+public class MyLinkedList<K extends Comparable> {
 	public INode<K> head;
 	public INode<K> tail;
 	
