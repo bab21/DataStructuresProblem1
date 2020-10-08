@@ -162,4 +162,31 @@ public class MyLinkedListTest {
 			boolean result=(Integer)mySecondNode.getNext().getKey()==40;
 			assertTrue(result);
 		}
+		
+	//UC9...
+		@Test
+		public void deleteNodeWithGivenKeyShouldPassResult() {
+			MyNode myFirstNode=new MyNode(56);
+			MyNode mySecondNode=new MyNode(30);
+			MyNode myThirdNode=new MyNode(40);
+			MyNode myFourthNode=new MyNode(70);
+			
+			MyLinkedList myLinkedList=new MyLinkedList();
+			myLinkedList.append(myFirstNode);
+			myLinkedList.append(mySecondNode);
+			myLinkedList.append(myThirdNode);
+			myLinkedList.append(myFourthNode);
+			
+			System.out.println("Before deleting "+myThirdNode.getKey());
+			myLinkedList.printMyLinkedList();
+			
+		    INode deletedNode=myLinkedList.deleteNodeWithKey(myThirdNode.getKey());
+		    System.out.println("after deleting : "+myThirdNode.getKey()+"from the list");
+		    myLinkedList.printMyLinkedList();
+		    
+			boolean result=(Integer)deletedNode.getKey()==40 &&
+					        myLinkedList.size()==3;
+			assertTrue(result);
+		}
+				
 }

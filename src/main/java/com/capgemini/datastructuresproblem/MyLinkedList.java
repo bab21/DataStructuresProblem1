@@ -8,6 +8,8 @@ public class MyLinkedList<K> {
 		head=null;
 		tail=null;
 	}
+	
+	//UC2.....
 	public void add (INode myNode) {
 		if(this.tail==null)
 			this.tail=myNode;
@@ -19,6 +21,8 @@ public class MyLinkedList<K> {
 			this.head.setNext(tempNode);
 		}
 	}
+	
+	//UC3....
 	public void append(INode myNode) {
 		if(this.tail==null)
 			this.tail=myNode;
@@ -31,12 +35,14 @@ public class MyLinkedList<K> {
 		
 	}
 	
+	//UC4.....
 	public void insertAfter(INode myNode,INode newNode) {
 		INode tempNode=myNode.getNext();
 		myNode.setNext(newNode);
 		newNode.setNext(tempNode);
 	}
 	
+	//UC5....
 	public INode pop() {
 		if(head==null)
 			return null;
@@ -45,6 +51,7 @@ public class MyLinkedList<K> {
 		return tempNode;
 	}
 	
+	//UC6 ......
 	public INode popLast() {
 		INode tempNode=head;
 		while(tempNode.getNext()!=tail) {
@@ -56,6 +63,7 @@ public class MyLinkedList<K> {
 		return lastNode;
 	}
 	
+	//UC7.....
 	public INode searchNodeWithKey(K key) {
 		INode tempNode=head;
 		while(tempNode !=null &&  tempNode.getKey()!=key) {
@@ -71,6 +79,30 @@ public class MyLinkedList<K> {
 		this.insertAfter(nodeWithGivenKey, newNode);
 		
 	}
+	
+	//UC9...
+	public INode deleteNodeWithKey(K key) {
+		INode iteratorNode=head;
+		while(iteratorNode!=null && iteratorNode.getNext().getKey()!=key)
+			iteratorNode=iteratorNode.getNext();
+		
+		INode deletedNode=iteratorNode.getNext();
+		iteratorNode.setNext(deletedNode.getNext());
+		deletedNode.setNext(null);
+		return deletedNode;
+	}
+	
+	//UC9....
+	public int size() {
+		int size=0;
+		INode tempNode=head;
+		while(tempNode!=null) {
+			size++;
+			tempNode=tempNode.getNext();
+		}
+		return size;	
+	}
+	
 	public void printMyLinkedList() {
 		StringBuffer myNodes=new StringBuffer("My Nodes....");
 		INode tempNode=head;
